@@ -3,11 +3,22 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "cypress": "cypress open",
+    "e2e": "start-server-and-test start http://localhost:3000 cypress"
   },
   "dependencies": {
+    "clsx": "^1.2.1",
+    "lorem-ipsum": "^2.0.8",
     "next": "latest",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "start-server-and-test": "^1.14.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.7",
+    "cypress": "^10.3.1",
+    "postcss": "^8.4.14",
+    "tailwindcss": "^3.1.6"
   }
 }
