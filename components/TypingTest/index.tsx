@@ -61,7 +61,7 @@ export default function TypingTest({
         <div className="flex flex-col p-3 h-full w-3/4">
           <CustomTextArea
             value={typingInput}
-            title="Input Text Here"
+            title="Input Text below"
             change={handleChange}
             onKeyDown={(event: KeyboardEvent) => handleKeyPress(event.key)}
             id="typing-area"
