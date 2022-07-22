@@ -11,6 +11,6 @@ const lorem = new LoremIpsum({
   },
 });
 
-export const generateText = () => {
-    return lorem.generateParagraphs(2)
-}
+export const generateText = (): string => {
+  return lorem.generateParagraphs(2);
+};

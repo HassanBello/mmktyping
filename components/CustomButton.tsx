@@ -1,6 +1,23 @@
+import { MouseEvent } from "react";
 import clsx from "clsx";
 
-export default function CustomButton({ click, classes, type, ...others }) {
+type Props = {
+  click: Function;
+  classes: string;
+  type: string;
+  [x: string]: any;
+};
+
+export default function CustomButton({
+  click,
+  classes,
+  type,
+  ...others
+}: Props) {
+  const handleMouseEvent = (e: MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    click();
+  };
   return (
     <button
       className={
@@ -16,7 +33,7 @@ export default function CustomButton({ click, classes, type, ...others }) {
         classes +
         " disabled:cursor-not-allowed text-base py-3 rounded-[10px]"
       }
-      onClick={click}
+      onClick={handleMouseEvent}
       {...others}
     >
       {others.children}

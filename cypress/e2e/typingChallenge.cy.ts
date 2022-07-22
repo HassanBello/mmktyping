@@ -1,8 +1,11 @@
+/// <reference types="cypress"/>
+export {};
+
 describe("Typing Challenge", () => {
-  let testData = {};
+  let testData: any = {};
   before(() => {
     cy.visit("/");
-    cy.fixture("data").then(function (regdata) {
+    cy.fixture("data").then(function (regdata: any) {
       testData = regdata;
     });
   });
@@ -19,7 +22,7 @@ describe("Typing Challenge", () => {
   });
 
   it("Select Time Option", () => {
-    cy.get("#test-time").type(8).invoke("val").should("not.be.empty");
+    cy.get("#test-time").type("8").invoke("val").should("not.be.empty");
   });
 
   it("Generates Text", () => {
@@ -49,7 +52,7 @@ describe("Typing Challenge", () => {
   });
 
   it("User can type values and mistakes are highlighted", () => {
-    cy.get("#typing-area").type(testData.genericMistakeText);
+    cy.get("#typing-area").type(testData.genericMistakeText, { delay: 100});
   });
 
   it("User Can click on Complete Test Button", () => {
@@ -58,8 +61,8 @@ describe("Typing Challenge", () => {
 
   it("User Can view results", () => {
     cy.get("#challenge-result").should("be.visible");
-    cy.get("#wpm").should('have.text', '660')
-    cy.get("#score").should('have.text', '44/51')
-    cy.get("#accuracy").should('have.text', '86')
+    cy.get("#wpm").should("have.text", "330");
+    cy.get("#score").should("have.text", "44/51");
+    cy.get("#accuracy").should("have.text", "86");
   });
 });

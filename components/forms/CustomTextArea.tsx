@@ -1,9 +1,15 @@
+type Props = {
+  value: string;
+  change: Function;
+  title: string;
+  [x:string]: any;
+};
 export default function CustomTextArea({
   value,
   change,
   title,
   ...others
-}) {
+}: Props) {
   return (
     <div className="w-full flex flex-col p-3 border border-purple-500 bg-white rounded-md">
       <h6 className="text-base font-600 capitalize">{title}</h6>

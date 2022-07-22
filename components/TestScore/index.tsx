@@ -1,11 +1,20 @@
 import CustomButton from "../CustomButton";
+
+type Props = {
+  score: string;
+  restartTest: Function;
+  wpm: number;
+  accuracy: number;
+  timeSpent: number;
+};
+
 export default function TestScore({
   score,
   restartTest,
   wpm,
   accuracy,
   timeSpent,
-}) {
+}: Props) {
   return (
     <div id="challenge-result" className="flex justify-center p-3 text-center">
       <div className="flex flex-col">
@@ -18,9 +27,6 @@ export default function TestScore({
         </p>
         <p className="text-base">
           Accuracy: <span id="accuracy">{accuracy}</span>%
-        </p>
-        <p className="text-base">
-          Time: <span id="time-spent">{timeSpent}m</span>
         </p>
         <CustomButton
           classes="w-full m-1"

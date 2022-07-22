@@ -3,17 +3,25 @@ import CustomTextArea from "../forms/CustomTextArea";
 import CustomButton from "../CustomButton";
 import { generateText } from "../../utils/generate-text";
 
+type Props = {
+  timeValue: number;
+  setTimeValue: Function;
+  textValue: string;
+  setTextValue: Function;
+  handleStartClick: Function;
+};
+
 export default function TestGenerator({
   timeValue,
   setTimeValue,
   textValue,
   setTextValue,
-  handleStartClick
-}) {
+  handleStartClick,
+}: Props) {
   const dataListConfig = {
     value: timeValue,
-    change: (e) => {
-      setTimeValue(e);
+    change: (value: number) => {
+      setTimeValue(value);
     },
     title: "Test Time(Minutes)",
     id: "test-time",
@@ -25,8 +33,8 @@ export default function TestGenerator({
 
   const textAreaConfig = {
     value: textValue,
-    change: (e) => {
-      setTextValue(e);
+    change: (value: string) => {
+      setTextValue(value);
     },
     title: "Text for Typing",
     id: "test-text",
@@ -45,7 +53,7 @@ export default function TestGenerator({
           <CustomDataList {...dataListConfig} />
         </div>
         <div className="flex flex-row justify-center mx-auto w-2/4 my-2">
-          <CustomTextArea {...textAreaConfig} rows="8" />
+          <CustomTextArea {...textAreaConfig} />
         </div>
         <div className="flex flex-row justify-center my-1">
           <CustomButton
@@ -67,7 +75,7 @@ export default function TestGenerator({
         </div>
         <div className="flex flex-row justify-center my-1">
           <CustomButton
-            disabled={(textValue.length <= 0 || timeValue < 1)}
+            disabled={textValue.length <= 0 || timeValue < 1}
             classes="w-1/4"
             type="primary"
             id="start-test-btn"
